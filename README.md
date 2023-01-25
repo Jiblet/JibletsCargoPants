@@ -1,48 +1,25 @@
-# Altered Extracts
+# Cargo Pants for Single Player Tarkov.
 
-This mod can change all extracts that usually require you to either:
-1. have a friendly Scav with you (impossible in Single Player),
-2. require payment,
-3. need you to drop your backpack, or
-4. need you to have a red rebel and paracord
-
-Into normal extracts that require none of those things.
-
-The probability of the extract being active, and the time taken to extract from are configurable in the config file. See below.
+This mod simply allows the user to set the vertical sizes of the pocket slots. Allowing you to, for example, put my Ammo Pouch - a 2x1 slot item - in your pocket.
+I've set the default sizes to 2, 1, 1, 2 to essentially simulate wearing tousers with cargo pockets - hence the name.
 
 ## :warning: Warnings
-* Some types of extracts are not affected by default. You'll need to turn them on in the config.json.
-* May interfere with, or be interfered with by, other mods that modify extracts. Rename to zzzz-AlterExtracts if you need to.
+* It only allows vertical scaling of pockets, not horizontal, as the in-game GUI can't cope with wider pockets - it starts pushing the Special slots off the right side of the screen.
+* Be careful with how long you make them, I've no idea what will happen if you go mad with it. 
+
+
 
 ## :memo: Config
-As of v1.3.0, this mod now operates on 4 types of extract:
-* "Scav_Coop_Extract" - Scav Co-op extracts, like Woods' factory gate
-* "Paid_Extract":     - Paid extracts, like the dorms vehicle extract on Customs
-* "Backpack_Extract"  - Extracts that need you to remove your backpack, like Interchange's hole in fence
-* "Alpine_Extract"    - Extracts that need a Red Rebel and paracord, like Reserve's cliff descent
+Config is nice and simple, describerd in teh code block below:
 
 ```
 {
-  "Settings": {
-    "Logging": true,             - Turns logging to the console on and off.
-    ExtractTypesEnabled": {      - Enables the changing of each extract type as per the examples above.
-      "Scav_Coop_Extract": true,    
-      "Paid_Extract": true,           
-      "Backpack_Extract": false, - Note that this is turned off by default as I don't like it, but you do you!    
-      "Alpine_Extract": false    - Note that this is turned off by default as I don't like it, but you do you!  
-    },
-    "ExfiltrationTimes": {       - Set the time taken to exit each extract type.
-      "Scav_Coop_Extract": 10,
-      "Paid_Extract": 20,
-      "Backpack_Extract": 10,
-      "Alpine_Extract": 8
-    },
-    "Chances": {                 - Set the probability of each extract type being open.
-      "Scav_Coop_Extract": 66,
-      "Paid_Extract": 66,
-      "Backpack_Extract": 100,
-      "Alpine_Extract": 100
-    }
-  }
+	"Logging": false,       - Turns some debug logging to the console on and off.
+	"PocketSizes": {
+		"Pocket1": 2,         - Set the vertical size of the left most pocket to this number of cells.
+		"Pocket2": 1,         - I believe in you.
+		"Pocket3": 1,         - You've got this.
+		"Pocket4": 2          - Told you!
+	}
 }
 ```
